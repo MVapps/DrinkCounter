@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/Focus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drink Count Options"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:onClick="resetAll"
+        android:text="@string/resetAll" />
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:onClick="clearAll"
+        android:text="@string/clearAll" />
+
+    <Button
+        android:id="@+id/RestoreDefault"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:onClick="restoreDefault"
+        android:text="@string/restoreDefault" 
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" 
+        />
+
+     <EditText
+        android:inputType="text"
+        android:id="@+id/FieldNewDrink"
+        android:hint="Enter a Drink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+		android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+         >
+     </EditText>
+
+     <Button
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/ButtonAddNew"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:onClick="addNewDrink"
+        android:text="@string/addNewDrink" />
+
+     <ListView
+        android:id="@+id/ListViewDrinks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        >
+     </ListView>
+    
+</LinearLayout>
