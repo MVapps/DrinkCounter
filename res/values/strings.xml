@@ -5,11 +5,12 @@
     <string name="app_name">DrinkCount</string>
     <string name="viewAll">View Current Count</string>
     <string name="resetAll">Reset Counts</string>
-    <string name="newBeverage">Record New</string>
+    <string name="newBeverage">Drink It!</string>
     <string name="selectNewPrompt">Select The Beverage</string>
     <string name="addNewDrink">Add New Drink!</string>
     <string name="viewMenu">Menu</string>
     <string name="restoreDefault">Reset Drinks To Default</string>
     <string name="clearAll">Remove All Drinks</string>
+    <string name="delete">Delete</string>
 
 </resources>

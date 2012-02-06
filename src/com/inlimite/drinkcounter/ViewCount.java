@@ -1,5 +1,7 @@
 package com.inlimite.drinkcounter;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -62,9 +64,13 @@ public class ViewCount extends Activity
 	    	
     		//get the image path based on the name of the variable being put on the screen
 	    	int path = getResources().getIdentifier(drinks[position].toLowerCase(), "drawable", "com.inlimite.drinkcounter");
-	    	//set the image
-	    	icon.setImageResource(path);
 	    	
+	    	//if a picture was found
+	    	if(path != 0)
+	    	{
+		    	//set the image
+		    	icon.setImageResource(path);
+	    	}
 	    	return(row);
 	    }
 	}

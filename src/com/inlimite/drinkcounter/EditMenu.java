@@ -44,13 +44,6 @@ public class EditMenu extends Activity
     	database.close();
     }
     
-    @Override
-    public void onResume()
-    {
-    	super.onResume();
-    	//update the list of drinks
-    }
-    
     public void createDrinkList()
     {
     	deleteList = (ListView) findViewById(R.id.ListViewDrinks);
@@ -76,18 +69,23 @@ public class EditMenu extends Activity
     	finish();
     	startActivity(getIntent());
     }
-
-    //FIX!!!!!!!!!!!!!
+    
     public void addNewDrink(View view)
     {    	
     	EditText text = (EditText) findViewById(R.id.FieldNewDrink);
     	
-    	database.addDrink(text.getText().toString());
-    	
-    	//notify the user of action
-	    Toast.makeText(this, text.getText().toString() + " has been added to the database.", Toast.LENGTH_SHORT).show();
-	    
-	    updateScreen();
+    	if(!database.findDrink(text.getText().toString()))
+    	{
+    		database.addDrink(text.getText().toString());
+	    	//notify the user of action
+		    Toast.makeText(this, text.getText().toString() + " has been added to the database.", Toast.LENGTH_SHORT).show();
+		    
+		    updateScreen();
+    	}
+    	else 
+    	{
+    		Toast.makeText(this, text.getText().toString() + " is already in the database.", Toast.LENGTH_SHORT).show();
+    	}
     }
 
     public void resetAll(View view)

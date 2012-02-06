@@ -34,20 +34,6 @@ public class Main extends Activity
     	initializeSpinner();
     }
     
-    @Override
-    public void onPause()
-    {
-    	super.onPause();
-    }
-    
-    @Override
-    public void onResume()
-    {
-    	super.onResume();
-    	
-    	
-    }
-    
     public void initializeSpinner()
     {
 

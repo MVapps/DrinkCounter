@@ -50,16 +50,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		onCreate(db);
 	}
 	
-	public SQLiteDatabase openWritableDatabase()
-	{
-		return this.getWritableDatabase();
-	}
-	
-	public SQLiteDatabase openReadableDatabase()
-	{
-		return this.getReadableDatabase();
-	}
-	
 	private void addDefaultDrinks()
 	{
 		this.addDrink("Coffee");
@@ -80,7 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		//check if there is a drink with that name already
 		if(!findDrink(drinkName))
 		{
-			SQLiteDatabase database = openWritableDatabase();
+			SQLiteDatabase database = getWritableDatabase();
 
 			ContentValues values = new ContentValues();
 			values.put(COLDRINK, drinkName);
@@ -104,7 +94,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		
 		try
 		{
-			SQLiteDatabase database = openReadableDatabase();
+			SQLiteDatabase database = getReadableDatabase();
 
 			//get the number of drinks with "drinkName" 
 			Cursor cur = database.rawQuery("SELECT COUNT(*) FROM " + TABLENAME + " WHERE drink=\'" + drinkName + "\'", null);
@@ -131,7 +121,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	
 	public void deleteDrink(String drinkName)
 	{
-		SQLiteDatabase database = openWritableDatabase();
+		SQLiteDatabase database = getWritableDatabase();
 
 		//clear row that has the drink
 		database.delete(TABLENAME, "drink=\'" + drinkName + "\'", null);
@@ -141,7 +131,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	
 	public void deleteAllDrinks()
 	{
-		SQLiteDatabase database = openWritableDatabase();
+		SQLiteDatabase database = getWritableDatabase();
 		
 		//clear all rows from table
 		database.delete(TABLENAME, null, null);
@@ -151,7 +141,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	
 	public void resetAllCounts()
 	{
-		SQLiteDatabase database = openWritableDatabase();
+		SQLiteDatabase database = getWritableDatabase();
 		
 		//reset all counts to 0
 		String sql = "UPDATE " + TABLENAME + " SET count=\'0\'";
@@ -175,7 +165,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			try
 			{
 				//open writable database
-				SQLiteDatabase database = openWritableDatabase();
+				SQLiteDatabase database = getWritableDatabase();
 				
 				//commit the changes on the database
 				database.update(TABLENAME, values, COLDRINK+"=\'"+drinkName+"\'", null);
@@ -198,7 +188,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		{
 			try
 			{
-				SQLiteDatabase database = openReadableDatabase();
+				SQLiteDatabase database = getReadableDatabase();
 				
 				//get a result from the database
 				Cursor cursor = database.rawQuery("SELECT "+COLCOUNT+" FROM "+TABLENAME+" WHERE "+COLDRINK+"=\'"+drinkName+"\'", null);
@@ -228,7 +218,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
 		try
 		{
-			SQLiteDatabase database = openReadableDatabase();
+			SQLiteDatabase database = getReadableDatabase();
 			
 			//run the query
 			cur = database.rawQuery("SELECT "+COLDRINK+" FROM "+TABLENAME, null);

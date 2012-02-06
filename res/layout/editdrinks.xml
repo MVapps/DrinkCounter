@@ -49,6 +49,13 @@
         android:layout_marginRight="15dp" 
         />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Drink"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
      <EditText
         android:inputType="text"
         android:id="@+id/FieldNewDrink"
@@ -57,7 +64,6 @@
         android:layout_height="wrap_content" 
 		android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
          >
      </EditText>
 
@@ -69,6 +75,13 @@
         android:layout_height="40dp"
         android:onClick="addNewDrink"
         android:text="@string/addNewDrink" />
+
+     <TextView
+         android:id="@+id/textView3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Delete Drinks"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
 
      <ListView
         android:id="@+id/ListViewDrinks"
