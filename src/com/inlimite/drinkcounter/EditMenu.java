@@ -12,9 +12,7 @@ import android.widget.Toast;
 
 public class EditMenu extends Activity
 {
-	protected String[] drinks;
 	protected DatabaseHelper database;
-	protected ListView deleteList;
 	
 	/** Called when the activity is first created. */
     @Override
@@ -28,9 +26,6 @@ public class EditMenu extends Activity
         
         //connect to the database
         database = new DatabaseHelper(this);
-        
-        //get list of drinks currently in db
-        drinks = database.getAllDrinks();
                 
         //create the list of drinks to be deleted.
         createDrinkList();
@@ -46,8 +41,9 @@ public class EditMenu extends Activity
     
     public void createDrinkList()
     {
-    	deleteList = (ListView) findViewById(R.id.ListViewDrinks);
-    	
+    	ListView deleteList = (ListView) findViewById(R.id.ListViewDrinks);
+        String[] drinks = database.getAllDrinks();
+        
     	//Create array of string to ad into the spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.menulist, R.id.list, drinks); 
         //add array to spinner

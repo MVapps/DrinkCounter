@@ -1,7 +1,5 @@
 package com.inlimite.drinkcounter;
 
-import java.io.File;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +12,6 @@ public class ViewCount extends Activity
 {
 	public DatabaseHelper database;
 	
-	public GridView grid;
 	public String[] result;
 	public String[] drinks;
 	
@@ -29,7 +26,7 @@ public class ViewCount extends Activity
         getValues();
         
 	    //get the grid view
-	    grid = (GridView) findViewById(R.id.gridView);
+	    GridView grid = (GridView) findViewById(R.id.gridView);
         //assign a layout to the grid view
 	    grid.setAdapter(new IconicAdapter());
         
