@@ -50,6 +50,9 @@ public class Main extends Activity
     public void initializeSpinner()
     {
 
+    	//get all the new drinks in case they changed
+    	drinks = database.getAllDrinks();
+
         //create a new Spinner object
         recordNewSpinner = (Spinner) findViewById(R.id.SpinnerNewChoice);
         
